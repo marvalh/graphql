@@ -12,7 +12,7 @@ export async function login(identifier, password) {
   });
 
   if (!res.ok) {
-    if (res.status === 401) {
+    if (res.status === 401 || res.status === 403) {
       throw new Error("Invalid username/email or password.");
     }
     throw new Error(`Server error: ${res.status}`);
