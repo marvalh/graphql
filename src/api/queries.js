@@ -16,21 +16,32 @@ export const GET_PROFILE = `
     attrs
     profile
 
-    progresses(
-      where: {
-        grade: { _is_null: false }
-        path: { _like: "%bh-module%" }
-        object: { type: { _eq: "project" } }
-      }
-    ) {
+progresses(
+  where: {
+    grade: { _is_null: false }
+    path: { _like: "%bh-module%" }
+    object: { type: { _eq: "project" } }
+  }
+  order_by: { createdAt: desc }
+) {
+  grade
+  path
+  createdAt
+  object {
+    id
+    type
+    name
+    results {
+      id
       grade
-      path
-      createdAt
-      object {
+      audits {
         id
-        name
+        grade
+        auditorLogin
       }
     }
+  }
+}
 
     events {
       level
