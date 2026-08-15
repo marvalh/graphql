@@ -45,19 +45,28 @@ export const GET_PROFILE = `
     }
   }
 
-  xpTotal: transaction_aggregate(where: { type: { _eq: "xp" } }) {
-    aggregate {
-      sum { amount }
-    }
+ xpTotal: transaction_aggregate(
+  where: {
+    type: { _eq: "xp" }
+    path: { _like: "%bh-module%", _nlike: "%piscine-js/%" }
   }
-  xpHistory: transaction(
-    where: { type: { _eq: "xp" } }
-    order_by: { createdAt: asc }
-  ) {
-    amount
-    createdAt
-    path
+) {
+  aggregate {
+    sum { amount }
+    count
   }
+}
+xpHistory: transaction(
+  where: {
+    type: { _eq: "xp" }
+    path: { _like: "%bh-module%", _nlike: "%piscine-js/%" }
+  }
+  order_by: { createdAt: asc }
+) {
+  amount
+  createdAt
+  path
+}
 
   auditsUp: transaction_aggregate(where: { type: { _eq: "up" } }) {
     aggregate {

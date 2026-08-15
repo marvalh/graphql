@@ -10,11 +10,13 @@ import {
 } from "@/components/ui/card"
 import {
   ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
 } from "@/components/ui/chart"
 
 const chartConfig = {
   total: {
-    label: "Cumulative XP",
+    label: "XP",
     color: "#726df5",
   },
 }
@@ -35,7 +37,7 @@ export default function XPChart({ history }) {
     <Card className="bg-white/5 backdrop-blur-xl border border-white/10">
       <CardHeader>
         <CardTitle>XP Progress</CardTitle>
-        <CardDescription>Cumulative XP over time</CardDescription>
+        <CardDescription>XP over time</CardDescription>
       </CardHeader>
       <CardContent>
         <div
@@ -76,12 +78,21 @@ export default function XPChart({ history }) {
                 stroke="rgba(255,255,255,0.6)"
                 tickFormatter={(value) => `${(value / 1000).toFixed(0)}KB`}
               />
+              <ChartTooltip
+                cursor={{ stroke: "rgba(255,255,255,0.2)", strokeWidth: 1 }}
+                content={
+                  <ChartTooltipContent
+                    formatter={(value) => [`${(value / 1000).toFixed(1)} kB`, " Total XP"]}
+                  />
+                }
+              />
               <Line
                 dataKey="total"
                 type="monotone"
                 stroke="url(#lineGradient)"
                 strokeWidth={2.5}
                 dot={false}
+                activeDot={{ r: 5, fill: "#c966ed", stroke: "#fff", strokeWidth: 1 }}
                 filter="url(#glow)"
               />
             </LineChart>
