@@ -1,0 +1,213 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Jersey 10", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    background-color: #0a0118;
+    background-image:
+        radial-gradient(circle at 20% 20%, rgba(113, 76, 245, 0.25), transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(201, 102, 237, 0.25), transparent 50%);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login-wrap {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(113, 76, 245, 0.35);
+    border-radius: 12px;
+    padding: clamp(20px, 1.5vh, 40px);
+    box-shadow:
+        0 0 20px rgba(113, 76, 245, 0.35),
+        0 0 60px rgba(201, 102, 237, 0.2),
+        0 8px 32px rgba(0, 0, 0, 0.4);
+    opacity: 0.96;
+}
+
+.profile-page h1 {
+    font-family: "Jersey 10", 'sans-serif';
+    font-size: 50px;
+    color: #c966ed;
+    text-shadow: 0 0 20px rgba(201, 102, 237, 0.5);
+}
+
+.login-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 320px;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.login-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.login-header .title {
+    font-size: 2.2rem;
+    color: #ffffff;
+    text-shadow: 0 0 12px rgba(113, 76, 245, 0.8);
+}
+
+.login-header .sub {
+    font-size: 1.3rem;
+    margin: 0;
+    opacity: 0.75;
+    color: #c9aeed;
+}
+
+.login-form .field-label {
+    font-size: 1.1rem;
+    color: #b3a5ec;
+}
+
+.alert {
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.alert-error {
+    background-color: rgba(232, 121, 249, 0.1);
+    border: 1px solid rgba(232, 121, 249, 0.4);
+    color: #e879f9;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.field-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.field-input {
+    font-size: 1.4rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(113, 76, 245, 0.4);
+    color: #ffffff;
+    border-radius: 6px;
+    padding: 10px 12px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.field-input:focus {
+    border-color: #c966ed;
+    box-shadow: 0 0 0 3px rgba(201, 102, 237, 0.25), 0 0 16px rgba(113, 76, 245, 0.4);
+}
+
+.field-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+#password {
+    padding-right: 42px;
+}
+
+.field-toggle {
+    position: absolute;
+    right: 12px;
+    background: transparent;
+    border: none;
+    color: #c966ed;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    opacity: 0.85;
+    transition: opacity 0.2s, filter 0.2s;
+}
+
+.field-toggle:hover {
+    opacity: 1;
+    filter: drop-shadow(0 0 6px rgba(201, 102, 237, 0.8));
+}
+
+.btn-primary {
+    font-family: "Jersey 10", sans-serif;
+    font-size: 25px;
+    background: linear-gradient(90deg, #714cf5, #a855f7, #c966ed);
+    border: 1px solid rgba(201, 102, 237, 0.6);
+    color: white;
+    border-radius: 6px;
+    box-shadow: 0 0 16px rgba(113, 76, 245, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3);
+    margin-top: 6px;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.25s ease, opacity 0.2s ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+    opacity: 0.95;
+    box-shadow: 0 0 5px rgba(201, 102, 237, 0.7), 0 0 60px rgba(113, 76, 245, 0.35);
+}
+
+.btn-primary:active {
+    transform: scale(0.99);
+}
+
+.btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.btn-spinner {
+    display: flex;
+    align-items: center;
+}
+
+.spin {
+    animation: rotate 1s linear infinite;
+    filter: drop-shadow(0 0 4px rgba(201, 102, 237, 0.7));
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

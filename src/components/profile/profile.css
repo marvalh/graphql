@@ -1,0 +1,130 @@
+.profile-page {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 40px 20px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.profile-page h1 {
+  background: linear-gradient(180deg, #ff6ec7 0%, #a78bfa 30%, #ffffff 50%, #a78bfa 70%, #4facfe 100%);
+  color:#350562;
+  background-size: 100% 200%;
+  padding: 12px;
+  border-radius: 10px;
+  animation: chrome-shift 4s ease-in-out infinite;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.identity p {
+  color: #faa2f2;
+  font-size: 1.3rem;
+}
+
+@keyframes chrome-shift {
+
+  0%,
+  100% {
+    background-position: 0% 0%;
+  }
+
+  50% {
+    background-position: 0% 100%;
+  }
+}
+
+#logout {
+  background: linear-gradient(180deg, #ff6ec7 0%, #a78bfa 30%, #ffffff 50%, #a78bfa 70%, #4facfe 100%);
+  color: #120555;
+  margin-left: auto;
+  background-size: 100% 200%;
+  padding: 6px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.chart-row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.chart-row>* {
+  flex: 1 1 400px;
+  max-width: 500px;
+}
+
+.chart-row-two {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.chart-row-two>* {
+  flex: 1 1 400px;
+  max-width: 500px;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  border-radius: 1.5rem;
+  padding: 20px;
+  width: 100%;
+  max-width: 1000px;
+  box-shadow:
+    0 0 20px rgba(135, 89, 242, 0.296),
+    0 0 20px rgba(55, 104, 238, 0.229),
+    inset 0 0 20px rgba(139, 92, 246, 0.05);
+}
+
+.chart-glass-panel {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  border-radius: 1.5rem;
+  padding: 32px;
+  width: 100%;
+  max-width: 1000px;
+  box-shadow:
+    0 0 20px rgba(135, 89, 242, 0.296),
+    0 0 20px rgba(55, 104, 238, 0.229),
+    inset 0 0 20px rgba(139, 92, 246, 0.05);
+}
+
+.chart-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.chart-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chart-scroll::-webkit-scrollbar-thumb {
+  background: rgba(166, 135, 239, 0.682);
+  border-radius: 10px;
+}
+
+.chart-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(147, 107, 240, 0.692);
+}
