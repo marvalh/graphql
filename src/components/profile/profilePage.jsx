@@ -5,7 +5,6 @@ import logout from '../../api/auth';
 import XPChart from '../charts/xpChart';
 import AuditRatio from '../charts/auditRatio';
 import Skills from '../charts/skills';
-import PassFail from '../charts/passFail';
 import './profile.css';
 
 export default function ProfilePage({ onLogout }) {
@@ -41,8 +40,6 @@ export default function ProfilePage({ onLogout }) {
     { skill: 'docker', value: data.docker[0]?.amount ?? 0 },
   ];
 
-  const myLogin = data.user[0].login;
-
   const progresses = data.user[0].progresses;
 
   const latestByProject = new Map();
@@ -53,12 +50,7 @@ export default function ProfilePage({ onLogout }) {
       latestByProject.set(key, p);
     }
   });
-
-  const dedupedProgress = Array.from(latestByProject.values());
-
-  const passed = dedupedProgress.filter((p) => p.grade >= 1).length;
-  const failed = dedupedProgress.filter((p) => p.grade < 1).length;
-
+  
   const auditsDone = data.auditsUp.aggregate.sum.amount ?? 0;
   const auditsReceived = data.auditsDown.aggregate.sum.amount ?? 0;
   const handleLogout = () => {
@@ -89,7 +81,6 @@ export default function ProfilePage({ onLogout }) {
         </div>
         <div className="chart-row-two">
           <Skills skills={skillsData} />
-          <PassFail passed={passed} failed={failed} />
         </div>
       </div>
     </div>

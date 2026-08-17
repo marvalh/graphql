@@ -29,7 +29,8 @@ export default function AuditRatio({ auditsDone, auditsReceived }) {
   const received = auditsReceived ?? 0;
   const ratio = done > 0 ? (done / received).toFixed(1) : "0.00";
 
-  const formatKB = (value) => `${Math.round(value / 1000)} kB`;
+  const formatMB = (value) => `${Math.round(value / 10000)} mB`;
+
 
   const chartData = [
     {
@@ -70,7 +71,7 @@ export default function AuditRatio({ auditsDone, auditsReceived }) {
                 position="top"
                 fill="#714cf5"
                 fontSize={18}
-                formatter={formatKB}
+                formatter={formatMB}
               />
             </Bar>
             <Bar dataKey="received" fill="#c966ed" radius={4} barSize={70}>
@@ -79,7 +80,7 @@ export default function AuditRatio({ auditsDone, auditsReceived }) {
                 position="top"
                 fill="#c966ed"
                 fontSize={18}
-                formatter={formatKB}
+                formatter={formatMB}
               />
             </Bar>
           </BarChart>
