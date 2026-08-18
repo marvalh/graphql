@@ -29,7 +29,7 @@ export default function AuditRatio({ auditsDone, auditsReceived }) {
   const received = auditsReceived ?? 0;
   const ratio = done > 0 ? (done / received).toFixed(1) : "0.00";
 
-  const formatMB = (value) => `${Math.round(value / 10000)} mB`;
+  const formatMB = (value) => `${Math.round(value / 1000000)} mB`;
 
 
   const chartData = [
